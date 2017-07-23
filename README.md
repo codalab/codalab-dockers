@@ -2,7 +2,7 @@
 
 This repo stores the legacy codalab worker, which has support for:
 
-1. Python 2.7 (with Anaconda libraries)
+1. Python 2.7 (with Anaconda 4.3.0 libraries)
 2. Java
 3. R
 4. C#
