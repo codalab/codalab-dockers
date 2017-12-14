@@ -1,4 +1,3 @@
-# Python requirements
 FROM debian:8.5
 
 # Install anaconda
