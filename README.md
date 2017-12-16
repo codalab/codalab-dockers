@@ -9,8 +9,8 @@ This repo stores the legacy codalab worker, which has support for:
 
 ## Updating the image
 
-```docker build -t ckcollab/codalab-legacy:latest .```
+```docker build -t codalab/codalab-legacy:1.0.0 .```
 
 ## Pushing to dockerhub
 
-```docker push ckcollab/codalab-legacy```
+```docker push codalab/codalab-legacy```
