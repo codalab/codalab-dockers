@@ -23,6 +23,8 @@ ENV PATH /opt/conda/bin:$PATH
 # > At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.
 ENV LANG C.UTF-8
 
+RUN conda install python=3.6
+
 # Fix for 'xgboost' missing
 RUN conda install libgcc
 
