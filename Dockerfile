@@ -33,16 +33,10 @@ RUN apt-get update && apt-get install -y --fix-missing openjdk-7-jre r-base mono
 
 # Helpful python libraries
 RUN pip install \
-        nibabel==2.1.0 \
         theano==0.9.0 \
-        Cython==0.27.3
-
-# MSCOCO dependencies
-RUN git clone https://github.com/cocodataset/cocoapi.git && \
-    cd cocoapi/PythonAPI && \
-    make && \
-    python setup.py build_ext install
-
-# LITS dependencies
-RUN pip install \
-        medpy==0.3.0
+        Cython==0.27.3 \
+        numpy==1.14.0 \
+        scipy==1.0.0 \
+        scikit-learn==0.19.1 \
+        pandas==0.22.0 \
+        pyyaml==3.12
