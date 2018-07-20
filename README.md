@@ -1,11 +1,6 @@
-# Codalab Legacy Worker
+# Codalab submission images
 
-This repo stores the legacy codalab worker, which has support for:
-
-1. Python 2.7 (with Anaconda 2.5.0 libraries)
-2. Java 1.7
-3. R
-4. C#
+This repo contains many images that submissions to codalab use for processing
 
 ## Available tags, roughly
 
@@ -13,6 +8,7 @@ This repo stores the legacy codalab worker, which has support for:
 |-------|-----------------------------------------------------------------|
 | 1.0.0 | the basic version, comes with numpy, nibabel, etc. -- python 2! |
 | py3   | same as above but with python3                                  |
+| pyenv | handles py2 and py3 at the same time; no C#/Java support        |
 
 ## Updating the image
 

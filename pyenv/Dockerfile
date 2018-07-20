@@ -21,8 +21,5 @@ RUN PYENV_VERSION=anaconda2-2.5.0 pip install category_encoders && \
 # By default run with py27
 RUN pyenv global anaconda2-2.5.0
 
-# To select your python version, do it like so:
-#    PYENV_VERSION=anaconda3-2.5.0 python yourscript.py $input $output
-#
 # Here is a list of available versions:
 #    https://github.com/pyenv/pyenv/tree/master/plugins/python-build/share/python-build
