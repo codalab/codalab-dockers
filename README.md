@@ -2,7 +2,7 @@
 
 This repo contains many images that submissions to codalab use for processing
 
-## Available tags, roughly
+## Available tags
 
 | tag   | description                                                     |
 |-------|-----------------------------------------------------------------|
