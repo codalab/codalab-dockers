@@ -16,6 +16,7 @@ RUN pip install \
         torch==1.6.0 \
         tqdm==4.48.2 \
         psutil==5.7.2 \
-        h5py==2.10.0
+        h5py==2.10.0 \
+        jupyter
 
 WORKDIR /app/codalab
