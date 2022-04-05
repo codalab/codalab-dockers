@@ -20,3 +20,8 @@ RUN pip install \
         jupyter
 
 WORKDIR /app/codalab
+
+# To add
+# apt-get update
+# apt-get -y install libgl1-mesa-glx
+# apt-get -y install libglb2.0-0
