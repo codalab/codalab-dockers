@@ -1,6 +1,6 @@
 # Codalab submission images
 
-This repo contains many images that submissions to codalab use for processing
+This repository contains default Docker images that can be used to process submissions on [CodaLab Competitions](https://github.com/codalab/codalab-competitions/).
 
 ## Available tags
 
