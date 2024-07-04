@@ -2,21 +2,22 @@ FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# install python 3.10 and curl
+# install python 3.10
 RUN apt update && \
     apt install -y software-properties-common && \
     add-apt-repository ppa:deadsnakes/ppa && \
     apt update && \
     apt install -y python3.10 python3.10-venv python3.10-dev curl && \
+    ln -sf /usr/bin/python3.10 /usr/bin/python3 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# install pip for python 3.10
+# install pip
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
 
 # install dependencies
-RUN pip install --upgrade pip
-RUN pip install \
+RUN python3 -m pip install pip --upgrade && \
+    python3 -m pip install \
                 Cython==3.0.10 \
                 numpy==1.26.4 \
                 matplotlib==3.9.0 \
