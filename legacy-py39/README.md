@@ -1,4 +1,4 @@
-# Legacy w/Python 3.7
+# Legacy w/Python 3.9
 
 This repo stores the legacy codalab image, which has support for:
 
