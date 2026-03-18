@@ -1,0 +1,46 @@
+# Simple and robust Python 3.12 base for Codabench submissions
+FROM python:3.12-slim-bookworm
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+# Small set of system packages:
+# - tini: proper signal handling / PID 1 behavior
+# - git / mercurial / subversion: kept from the old image
+# - libgomp1: often needed by scientific Python wheels
+# - r-base / mono-runtime: kept from the old image in case some old bundles rely on them
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    tini \
+    curl \
+    grep \
+    sed \
+    dpkg \
+    ca-certificates \
+    wget \
+    git \
+    mercurial \
+    subversion \
+    libgomp1 \
+    libc6 \
+    r-base \
+    mono-runtime \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN python -m pip install --upgrade pip setuptools wheel
+
+# Pinned scientific stack
+RUN python -m pip install \
+    Cython==3.0.12 \
+    numpy==1.26.4 \
+    scipy==1.11.4 \
+    scikit-learn==1.5.1 \
+    pandas==2.2.3 \
+    pyyaml==6.0.2 \
+    imutils==0.5.4 \
+    numba==0.61.2 \
+    threadpoolctl==3.6.0
+
+ENTRYPOINT ["/usr/bin/tini", "--"]
+CMD ["python3"]

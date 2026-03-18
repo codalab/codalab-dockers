@@ -1,11 +1,12 @@
 # Codalab submission images
 
-This repository contains default Docker images that can be used to process submissions on [CodaLab Competitions](https://github.com/codalab/codalab-competitions/).
+This repository contains default Docker images that can be used to process submissions on [CodaLab Competitions](https://github.com/codalab/codalab-competitions/) and [Codabench](https://github.com/codalab/codabench/).
 
 ## Available tags
 
 | tag   | description                                                     |
 |-------|-----------------------------------------------------------------|
+| codalab/codalab-legacy:py312 | basic image, including numpy, sklearn, etc. -- python3.12           |
 | codalab/codalab-legacy:py39  | basic image, including numpy, sklearn, etc. -- python3.9            |
 | codalab/codalab-legacy:py37  | basic image, older version -- python3.7            |
 | codalab/codalab-legacy:gpu310   | GPU support (nvidia, python libraries, etc.) -- python3.10   |
@@ -13,10 +14,19 @@ This repository contains default Docker images that can be used to process submi
 | codalab/codalab-legacy:py2   | Old default image (deprecated)   |
 
 
-## Updating the image
+## Build image
 
-```docker build -t codalab/codalab-legacy:1.0.0 .```
+```
+docker build -t <DockerHub tag> -f <Dockerfile path> .
+```
 
-## Pushing to dockerhub
+Example:
+```
+docker build -t codalab/codalab-legacy:py312 -f Dockerfiles/Dockerfile-py312 .
+```
 
-```docker push codalab/codalab-legacy:1.0.0```
+## Push to DockerHub
+
+```
+docker push codalab/codalab-legacy:py312
+```
