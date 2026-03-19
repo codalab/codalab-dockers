@@ -1,4 +1,4 @@
-# Simple and robust Python 3.12 base for Codabench submissions
+# Python 3.12 base
 FROM python:3.12-slim-bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1
 
-# Small set of system packages:
+# System packages:
 # - tini: proper signal handling / PID 1 behavior
 # - git / mercurial / subversion: kept from the old image
 # - libgomp1: often needed by scientific Python wheels
@@ -26,11 +26,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libc6 \
     r-base \
     mono-runtime \
+    # matplotlib runtime deps (safe minimal set)
+    libfreetype6 \
+    libpng16-16 \
+    fonts-dejavu-core \
     && rm -rf /var/lib/apt/lists/*
 
 RUN python -m pip install --upgrade pip setuptools wheel
 
-# Pinned scientific stack
+# Python libraries
 RUN python -m pip install \
     Cython==3.0.12 \
     numpy==1.26.4 \
@@ -40,7 +44,8 @@ RUN python -m pip install \
     pyyaml==6.0.2 \
     imutils==0.5.4 \
     numba==0.61.2 \
-    threadpoolctl==3.6.0
+    threadpoolctl==3.6.0 \
+    matplotlib==3.8.4
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["python3"]
