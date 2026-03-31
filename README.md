@@ -1,4 +1,4 @@
-# Codalab submission images
+# CodaLab and Codabench competition docker images
 
 This repository contains default Docker images that can be used to process submissions on [CodaLab Competitions](https://github.com/codalab/codalab-competitions/) and [Codabench](https://github.com/codalab/codabench/).
 
