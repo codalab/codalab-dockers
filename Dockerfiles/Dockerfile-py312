@@ -45,7 +45,8 @@ RUN python -m pip install \
     imutils==0.5.4 \
     numba==0.61.2 \
     threadpoolctl==3.6.0 \
-    matplotlib==3.8.4
+    matplotlib==3.8.4 \
+    psutil==7.0.0
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["python3"]
